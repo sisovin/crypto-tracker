@@ -5,6 +5,7 @@ import { Coin, Currency, SortOption } from '@/types/crypto';
 import CoinCard from '@/components/coin-card';
 import CoinCardSkeleton from '@/components/coin-card-skeleton';
 import DashboardHeader from '@/components/dashboard-header';
+import DashboardFooter from '@/components/dashboard-footer';
 import ErrorState from '@/components/error-state';
 import EmptyState from '@/components/empty-state';
 import { Button } from '@/components/ui/button';
@@ -178,7 +179,7 @@ export default function CryptoDashboard({ initialCoins }: CryptoDashboardProps) 
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <DashboardHeader
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
@@ -188,7 +189,7 @@ export default function CryptoDashboard({ initialCoins }: CryptoDashboardProps) 
         onSortChange={setSortBy}
       />
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 flex-1">
         {isRefreshing && coins.length === 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {Array.from({ length: 12 }).map((_, i) => (
@@ -234,6 +235,8 @@ export default function CryptoDashboard({ initialCoins }: CryptoDashboardProps) 
           </>
         )}
       </main>
+
+      <DashboardFooter />
     </div>
   );
 }

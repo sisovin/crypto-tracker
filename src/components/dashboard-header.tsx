@@ -12,6 +12,7 @@ import {
 import { Search, Settings } from 'lucide-react';
 import { Currency, SortOption } from '@/types/crypto';
 import { ThemeSwitcher } from './theme-switcher';
+import Link from 'next/link';
 
 interface DashboardHeaderProps {
   searchQuery: string;
@@ -80,9 +81,11 @@ export default function DashboardHeader({
 
             <div className="flex items-center gap-2">
               <ThemeSwitcher />
-              <Button variant="ghost" size="icon">
-                <Settings className="h-5 w-5" />
-              </Button>
+              <Link href="/settings">
+                <Button variant="ghost" size="icon">
+                  <Settings className="h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
