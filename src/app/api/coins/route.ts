@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { fetchCoins } from '@/lib/crypto-api';
 import { Currency } from '@/types/crypto';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);

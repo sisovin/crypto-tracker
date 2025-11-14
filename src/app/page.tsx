@@ -3,6 +3,8 @@ import { fetchCoins } from '@/lib/crypto-api';
 import { Toaster } from '@/components/ui/toaster';
 import { Coin } from '@/types/crypto';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page() {
   let initialCoins: Coin[] = [];
   
